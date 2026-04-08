@@ -1,0 +1,63 @@
+{
+    "name": "carmelosantana/coqui-toolkit-slicedd",
+    "description": "3D printing toolkit for Coqui — OrcaSlicer CLI wrapping, G-code analysis/manipulation, slice job tracking, and print farm management",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carmelo Santana"
+        }
+    ],
+    "keywords": [
+        "php-agents",
+        "3d-printing",
+        "orcaslicer",
+        "gcode",
+        "slicer",
+        "coqui",
+        "toolkit",
+        "print-farm"
+    ],
+    "require": {
+        "php": "^8.4"
+    },
+    "require-dev": {
+        "carmelosantana/php-agents": "^0.7",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitSlicedd\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CarmeloSantana\\CoquiToolkitSlicedd\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse"
+    },
+    "extra": {
+        "php-agents": {
+            "toolkits": [
+                "CarmeloSantana\\CoquiToolkitSlicedd\\SliceddToolkit"
+            ],
+            "credentials": {
+                "ORCA_SLICER_PATH": "Path to OrcaSlicer binary — auto-detected if orca-slicer or OrcaSlicer is on PATH"
+            },
+            "description": "3D Printing — slice models with OrcaSlicer, analyze/modify G-code, track slice jobs, and manage print farms"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
